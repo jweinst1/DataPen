@@ -8,6 +8,9 @@ int main(int argc, char const *argv[]) {
         long g = 400000;
         pot.write(g);
         pot.print();
+        long f = 0;
+        pot.read(f);
+        std::cout << f << std::endl;
         return 0;
 
 }

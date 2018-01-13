@@ -5,6 +5,7 @@
 
 #include <cstdio>
 
+// Template sized block of data that can be written over
 template<long size>
 class DataBlock
 {
@@ -72,6 +73,45 @@ template<class T> void write(const T& object)
                 const unsigned char* data = reinterpret_cast<const unsigned char*>(&object);
                 for(long i=0; i<sizeof(T); i++) _data[i] = data[i];
         }
+}
+
+// READ methods
+
+// Reads the entire block into a buffer
+void read(unsigned char* buf) const
+{
+        for (long i = 0; i < size; i++)
+        {
+                buf[i] = _data[i];
+        }
+}
+
+//Reads one size of T from the block into the pointer buf.
+template<class T> void read(T* object) const
+{
+        if(sizeof(T) <= size)
+        {
+                unsigned char* bufData = reinterpret_cast<unsigned char*>(object);
+                for (long i = 0; i < sizeof(T); i++)
+                {
+                        bufData[i] = _data[i];
+                }
+        }
+
+}
+
+// Reads one size of T into a reference of type T
+template<class T> void read(T& object) const
+{
+        if(sizeof(T) <= size)
+        {
+                unsigned char* bufData = reinterpret_cast<unsigned char*>(&object);
+                for (long i = 0; i < sizeof(T); i++)
+                {
+                        bufData[i] = _data[i];
+                }
+        }
+
 }
 
 void print(void) const
