@@ -1,5 +1,9 @@
 #ifndef DATAPEN_BLOCK_H
 #define DATAPEN_BLOCK_H
+/** @AUTHORS = Joshua Weinstein
+ * @EMAIL = jweinst1@berkeley.edu
+ *
+ */
 // Header that defines the DataBlock class
 // DataBlock deals with single chunks of data as bytes
 

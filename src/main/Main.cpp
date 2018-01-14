@@ -1,16 +1,13 @@
 #include <iostream>
-#include "DataBlock.h"
+#include "DataTuple.h"
+
 
 
 
 int main(int argc, char const *argv[]) {
-        DataBlock<20> pot;
-        long g = 400000;
-        pot.write(g);
-        pot.print();
-        long f = 0;
-        pot.read(f);
-        std::cout << f << std::endl;
+        DataTuple foop(90);
+        std::cout << "yooo\n";
+
         return 0;
 
 }
