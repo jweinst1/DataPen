@@ -18,6 +18,12 @@ DataUnit(unsigned char* data, size_t len) : _size(len), _data(new unsigned char[
         std::copy(data, data + len, _data);
 }
 
+template<class T> DataUnit(const T& object) : _size(sizeof(T)), _data(new unsigned char[_size]), _next(nullptr)
+{
+        const unsigned char* objData = reinterpret_cast<const unsigned char*>(&objData);
+        std::copy(objData, objData + sizeof(T), _data);
+}
+
 ~DataUnit()
 {
         delete[] _data;

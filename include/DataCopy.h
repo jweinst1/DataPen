@@ -1,6 +1,10 @@
 #ifndef DATAPEN_COPY_H
 #define DATAPEN_COPY_H
 //Header that defines raw data copying methods.
+/** @AUTHORS = Joshua Weinstein
+ * @EMAIL = jweinst1@berkeley.edu
+ *
+ */
 
 struct DataCopy
 {
