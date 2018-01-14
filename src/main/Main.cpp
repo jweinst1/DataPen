@@ -1,12 +1,14 @@
 #include <DataStream.h>
-#include <cstdio>
+#include <iostream>
 
 
 
 int main(int argc, char const *argv[]) {
         unsigned char bits[] = {66, 66, 66, 66, 88};
         DataUnit unit(bits, 5);
-        std::printf("bytes are %u, %u\n", *unit.data(), *(unit.data() + 1));
+        DataUnit unit2(bits, 5);
+        std::cout << (unit == unit2) << std::endl;
         return 0;
+
 
 }
