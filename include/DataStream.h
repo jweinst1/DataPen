@@ -59,6 +59,11 @@ bool operator==(const DataUnit& other) const
         }
 }
 
+bool operator!=(const DataUnit& other) const
+{
+        return !(*this == other);
+}
+
 void write(unsigned char* data, size_t len)
 {
         if(len <= _size)
