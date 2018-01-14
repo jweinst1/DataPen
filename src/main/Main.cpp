@@ -1,17 +1,12 @@
+#include <DataStream.h>
 #include <cstdio>
-#include "DataCopy.h"
-
 
 
 
 int main(int argc, char const *argv[]) {
-        long f = 5000;
-        unsigned char foo[8];
-        DataCopy::copyToData(f, foo);
-        for (size_t i = 0; i < 8; i++) {
-                std::printf("%u\n", foo[i]);
-        }
-
+        unsigned char bits[] = {66, 66, 66, 66, 88};
+        DataUnit unit(bits, 5);
+        std::printf("bytes are %u, %u\n", *unit.data(), *(unit.data() + 1));
         return 0;
 
 }
