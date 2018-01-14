@@ -1,12 +1,16 @@
-#include <iostream>
-#include "DataTuple.h"
+#include <cstdio>
+#include "DataCopy.h"
 
 
 
 
 int main(int argc, char const *argv[]) {
-        DataTuple foop(90);
-        std::cout << "yooo\n";
+        long f = 5000;
+        unsigned char foo[8];
+        DataCopy::copyToData(f, foo);
+        for (size_t i = 0; i < 8; i++) {
+                std::printf("%u\n", foo[i]);
+        }
 
         return 0;
 
