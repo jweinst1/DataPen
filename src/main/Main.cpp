@@ -5,11 +5,12 @@
 
 
 int main(int argc, char const *argv[]) {
-        std::string foo = "Hello!\n";
-        DataUnit strunit(foo);
+        int* foo = new int[50];
+        DataUnit strunit(foo, 50);
 
         std::cout << strunit.getSize() << std::endl;
         return 0;
+
 
 
 }

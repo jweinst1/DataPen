@@ -20,8 +20,14 @@ DataUnit(unsigned char* data, size_t len) : _size(len), _data(new unsigned char[
 
 template<class T> DataUnit(const T& object) : _size(sizeof(T)), _data(new unsigned char[_size]), _next(nullptr)
 {
-        const unsigned char* objData = reinterpret_cast<const unsigned char*>(&objData);
+        const unsigned char* objData = reinterpret_cast<const unsigned char*>(&object);
         std::copy(objData, objData + sizeof(T), _data);
+}
+
+template<class T> DataUnit(const T* object, size_t len) : _size(sizeof(T) * len), _data(new unsigned char[_size]), _next(nullptr)
+{
+        const unsigned char* objData = reinterpret_cast<const unsigned char*>(object);
+        std::copy(objData, objData + _size, _data);
 }
 
 ~DataUnit()
