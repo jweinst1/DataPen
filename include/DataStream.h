@@ -1,0 +1,4 @@
+#ifndef DATAPEN_STREAM_H
+#define DATAPEN_STREAM_H
+
+#endif // DATAPEN_STREAM_H
