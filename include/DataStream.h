@@ -19,7 +19,7 @@ DataUnit(unsigned char* data, size_t len) : _size(len), _data(new unsigned char[
 }
 
 // Copy Constrcutor
-DataUnit(const DataUnit& other) : _size(other.getSize()), _data(new unsigned char[_size]), _next(nullptr)
+DataUnit(const DataUnit& other) : _size(other.getSize()), _data(new unsigned char[_size]), _next(other.getNext())
 {
         std::copy(other.getData(), other.getData() + other.getSize(), _data);
 }
@@ -34,6 +34,18 @@ template<class T> DataUnit(const T* object, size_t len) : _size(sizeof(T) * len)
 {
         const unsigned char* objData = reinterpret_cast<const unsigned char*>(object);
         std::copy(objData, objData + _size, _data);
+}
+
+DataUnit& operator=(const DataUnit& other)
+{
+        if(this != &other)
+        {
+                _next = other.getNext();
+                _size = other.getSize();
+                std::copy(other.getData(), other.getData() + other.getSize(), _data);
+
+        }
+        return *this;
 }
 
 ~DataUnit()
@@ -99,6 +111,12 @@ private:
 size_t _size;
 unsigned char* _data;
 DataUnit* _next;
+};
+
+
+class DataStream
+{
+
 };
 
 
