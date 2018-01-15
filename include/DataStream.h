@@ -18,6 +18,12 @@ DataUnit(unsigned char* data, size_t len) : _size(len), _data(new unsigned char[
         std::copy(data, data + len, _data);
 }
 
+// Copy Constrcutor
+DataUnit(const DataUnit& other) : _size(other.getSize()), _data(new unsigned char[_size]), _next(nullptr)
+{
+        std::copy(other.getData(), other.getData() + other.getSize(), _data);
+}
+
 template<class T> DataUnit(const T& object) : _size(sizeof(T)), _data(new unsigned char[_size]), _next(nullptr)
 {
         const unsigned char* objData = reinterpret_cast<const unsigned char*>(&object);
@@ -82,6 +88,11 @@ void write(unsigned char* data, size_t len)
         {
                 std::copy(data, data + len, _data);
         }
+}
+
+unsigned char& operator[](const size_t index)
+{
+        return _data[index];
 }
 
 private:
