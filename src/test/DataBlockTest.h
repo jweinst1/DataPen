@@ -36,5 +36,18 @@ void BlockTest_3(void)
         else std::cout << "BlockTest_3: Failed" << std::endl;
 }
 
+void BlockTest_4(void)
+{
+        DataBlock<3> foo;
+        foo[0] = 66;
+        foo[1] = 33;
+        foo[2] = 77;
+
+        DataBlock<6> parent;
+        parent.write(foo);
+        parent.print();
+        std::cout << "BlockTest_4: Passed" << std::endl;
+}
+
 
 #endif //DATA_BLOCK_TEST_1_H

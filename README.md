@@ -34,6 +34,27 @@ block.write(i);
 
 ```
 
+Since a DataBlock is a pure array of bytes, you can write data blocks into other blocks, allowing for un-typed binary formatting.
+
+```c++
+
+DataBlock<3> foo;
+foo[0] = 66;
+foo[1] = 33;
+foo[2] = 77;
+
+DataBlock<6> parent;
+parent.write(foo);
+parent.print();
+```
+
+And the result is
+
+```
+[ 66 33 77 0 0 0 ]
+```
+
+
 ## License
 
 `DataPen` is MIT licensed.
