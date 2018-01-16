@@ -24,6 +24,17 @@ DataBlock(const unsigned char* data, long length)
         clean();
         for(long i=0; i<length; i++) _data[i] = data[i];
 }
+
+// Constructor with assumed correct size, constructs binary form of an object
+template<class T> DataBlock(const T& object)
+{
+        const unsigned char* objData = reinterpret_cast<const unsigned char*>(&object);
+        for (size_t i = 0; i < sizeof(T); i++)
+        {
+                _data[i] = objData[i];
+        }
+
+}
 ~DataBlock()
 {
 
@@ -38,6 +49,7 @@ const unsigned char* begin(void) const
 {
         return _data;
 }
+
 
 const unsigned char* end(void) const
 {

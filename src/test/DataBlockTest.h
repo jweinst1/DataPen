@@ -25,4 +25,16 @@ void BlockTest_2(void)
         else std::cout << "BlockTest_2: Failed" << std::endl;
 }
 
+// Tests the Reading ability of the Data Block
+void BlockTest_3(void)
+{
+        long i = 444;
+        DataBlock<8> iblock(i);
+        long j = 0;
+        iblock.read(j);
+        if(j == 444) std::cout << "BlockTest_3: Passed" << std::endl;
+        else std::cout << "BlockTest_3: Failed" << std::endl;
+}
+
+
 #endif //DATA_BLOCK_TEST_1_H

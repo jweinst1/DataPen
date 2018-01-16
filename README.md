@@ -12,6 +12,20 @@ To use DataPen, just include the header files into your C++ project.
 
 To make the test executable, in your terminal run `make all`
 
+You can then run the tests by using the command
+
+```
+$ ./bin/DataPen
+```
+
+## Guide
+
+`DataPen` contains several collection and container classes for handling binary data. The first of those is the `DataBlock`.
+
+### DataBlock:
+
+The DataBlock class.
+
 ## License
 
 `DataPen` is MIT licensed.

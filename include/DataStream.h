@@ -68,6 +68,12 @@ DataUnit* getNext(void)
         return _next;
 }
 
+DataUnit* setNext(DataUnit* dUnit)
+{
+        _next = dUnit;
+        return _next;
+}
+
 bool hasNext(void) const
 {
         return _next != nullptr;
