@@ -24,7 +24,15 @@ $ ./bin/DataPen
 
 ### DataBlock:
 
-The DataBlock class.
+The DataBlock class holds a  "block" of bytes that are sized via a template. They can be written and read to much like a file. An Example,
+
+```c++
+
+DataBlock<4> block;
+int i = 3;
+block.write(i);
+
+```
 
 ## License
 
