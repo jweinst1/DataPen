@@ -122,7 +122,21 @@ DataUnit* _next;
 
 class DataStream
 {
+public:
+DataStream() : _front(nullptr), _back(nullptr)
+{
 
+}
+~DataStream()
+{
+        for(DataUnit* traverse = _front; traverse != nullptr; traverse = traverse->getNext())
+        {
+                delete traverse;
+        }
+}
+private:
+DataUnit* _front;
+DataUnit* _back;
 };
 
 
